@@ -4,11 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:dev": "ts-node-dev --respawn --ignore-watch node_modules --no-notify src/server.ts"
+    "start:dev": "ts-node-dev --respawn --ignore-watch node_modules --no-notify src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "typeorm": "^0.2.34"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
