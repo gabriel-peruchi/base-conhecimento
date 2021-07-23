@@ -1,11 +1,6 @@
 import { createConnection } from 'typeorm'
-import PostgresConfig from '../../config/postgres'
 
-createConnection({
-  type: 'postgres',
-  host: PostgresConfig.host,
-  port: PostgresConfig.port,
-  username: PostgresConfig.username,
-  password: PostgresConfig.password,
-  database: PostgresConfig.database
-})
+createConnection()
+  .then(() => console.log('Connection postgres: success'))
+  .catch((error) => console.error('Connection postgress failed:', error.message))
+  
