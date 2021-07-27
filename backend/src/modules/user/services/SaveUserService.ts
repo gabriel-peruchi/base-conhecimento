@@ -14,7 +14,7 @@ class IUser {
   admin: boolean
 }
 
-class SaveUserService {
+export class SaveUserService {
   private userRepository: Repository<User>
 
   constructor() {
@@ -49,5 +49,3 @@ class SaveUserService {
     return await this.userRepository.save(user)
   }
 }
-
-export { SaveUserService }

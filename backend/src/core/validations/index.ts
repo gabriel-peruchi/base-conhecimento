@@ -1,4 +1,4 @@
-function existsOrError(value: any, msg: string) {
+export function existsOrError(value: any, msg: string) {
   if (!value) {
     throw msg
   }
@@ -12,7 +12,7 @@ function existsOrError(value: any, msg: string) {
   }
 }
 
-function notExistsOrError(value: any, msg: string) {
+export function notExistsOrError(value: any, msg: string) {
   try {
     existsOrError(value, msg)
   } catch (msg) {
@@ -21,10 +21,8 @@ function notExistsOrError(value: any, msg: string) {
   throw msg
 }
 
-function equalsOrError(valueX: any, valueY: any, msg: string) {
+export function equalsOrError(valueX: any, valueY: any, msg: string) {
   if (valueX !== valueY) {
     throw msg
   }
 }
-
-export { existsOrError, notExistsOrError, equalsOrError }
