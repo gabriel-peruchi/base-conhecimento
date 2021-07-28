@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+
 import { SaveUserService } from '../services/SaveUserService'
 
 export class CreateUserController {

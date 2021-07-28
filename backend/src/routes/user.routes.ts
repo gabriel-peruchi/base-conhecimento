@@ -2,7 +2,7 @@ import { Router } from 'express'
 
 import { CreateUserController } from '../modules/user/controllers/CreateUserController'
 import { ListUsersController } from '../modules/user/controllers/ListUsersController'
-import { FindUserByIdController } from './../modules/user/controllers/FindUserByIdController'
+import { FindUserByIdController } from '../modules/user/controllers/FindUserByIdController'
 import { UpdateUserController } from '../modules/user/controllers/UpdateUserController'
 
 const listUsersController = new ListUsersController()

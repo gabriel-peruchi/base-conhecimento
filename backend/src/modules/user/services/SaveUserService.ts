@@ -5,7 +5,7 @@ import { User } from '../entities/User'
 import { UserRepository } from '../repositories/UserRepository'
 import { existsOrError, equalsOrError, notExistsOrError } from '../../../core/validations'
 
-class IUser {
+class IRequestUser {
   id: string
   name: string
   email: string
@@ -21,7 +21,7 @@ export class SaveUserService {
     this.userRepository = getCustomRepository(UserRepository)
   }
 
-  async execute({ name, email, password, confirmPassword, admin, id }: IUser) {
+  async execute({ name, email, password, confirmPassword, admin, id }: IRequestUser) {
     existsOrError(name, 'Nome não informado')
     existsOrError(email, 'Email não informado')
     existsOrError(password, 'Senha não informada')
@@ -42,7 +42,7 @@ export class SaveUserService {
         { name, email, password, admin }
       )
 
-      return await this.userRepository.findOne({ id })
+      return await this.userRepository.findOne(id)
     }
 
     const user = this.userRepository.create({ name, email, password, admin })

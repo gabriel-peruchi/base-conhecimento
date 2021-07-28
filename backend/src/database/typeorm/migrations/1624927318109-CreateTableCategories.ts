@@ -18,7 +18,8 @@ export class CreateTableCategories1624927318109 implements MigrationInterface {
           },
           {
             name: 'parent_id',
-            type: 'uuid'
+            type: 'uuid',
+            isNullable: true
           },
           {
             name: 'created_at',
