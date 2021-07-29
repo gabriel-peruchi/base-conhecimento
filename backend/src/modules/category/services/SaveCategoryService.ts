@@ -2,7 +2,7 @@ import { getCustomRepository, Repository } from 'typeorm'
 
 import { existsOrError } from '../../../core/validations'
 import { CategoryRepository } from '../repositories/CategoryRepository'
-import { Category } from './../entities/Category'
+import { Category } from '../entities/Category'
 
 class IRequestCategory {
   id: string
