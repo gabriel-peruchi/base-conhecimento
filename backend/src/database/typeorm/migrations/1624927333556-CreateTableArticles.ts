@@ -29,7 +29,7 @@ export class CreateTableArticles1624927333556 implements MigrationInterface {
           },
           {
             name: 'content',
-            type: ' bytea',
+            type: 'bytea',
             isNullable: false
           },
           {
