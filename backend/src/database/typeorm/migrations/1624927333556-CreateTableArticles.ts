@@ -25,7 +25,8 @@ export class CreateTableArticles1624927333556 implements MigrationInterface {
           {
             name: 'image_url',
             type: 'varchar',
-            length: '1000'
+            length: '1000',
+            isNullable: true
           },
           {
             name: 'content',
