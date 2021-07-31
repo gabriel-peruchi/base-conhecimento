@@ -7,7 +7,7 @@ import 'express-async-errors'
 import './database/typeorm/connection'
 
 import { routes } from './routes'
-import { errorMiddleware } from './core/middlewares/ErrorMiddleware'
+import { errorMiddleware } from './core/middlewares/errorMiddleware'
 
 const app = express()
 
