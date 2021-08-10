@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from 'typeorm'
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn } from 'typeorm'
 import { v4 as uuid } from 'uuid'
+import { User } from '../../user/entities/User'
 
 @Entity('articles')
 export class Article {
@@ -29,6 +30,10 @@ export class Article {
 
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date
+
+  @JoinColumn({ name: 'created_by_id' })
+  @ManyToOne(type => User)
+  createdBy: User
 
   constructor() {
     if (!this.id) {

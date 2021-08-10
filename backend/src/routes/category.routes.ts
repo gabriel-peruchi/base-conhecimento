@@ -6,6 +6,7 @@ import { DeleteCategoryController } from './../modules/category/controllers/Dele
 import { ListCategoriesController } from './../modules/category/controllers/ListCategoriesController';
 import { FindCategoryByIdController } from './../modules/category/controllers/FindCategoryByIdController'
 import { ListCategoryTreeController } from '../modules/category/controllers/ListCategoryTreeController'
+import { FindArticlesByCategoryController } from '../modules/article/controllers/FindArticlesByCategoryController'
 
 const createCategoryController = new CreateCategoryController()
 const updateCategoryController = new UpdateCategoryController()
@@ -13,6 +14,7 @@ const deleteCategoryController = new DeleteCategoryController()
 const listCategoriesController = new ListCategoriesController()
 const listCategoryTreeController = new ListCategoryTreeController()
 const findCategoryByIdController = new FindCategoryByIdController()
+const findArticlesByCategoryController = new FindArticlesByCategoryController()
 
 const categoryRoutes = Router()
 
@@ -22,5 +24,6 @@ categoryRoutes.get('/', listCategoriesController.handle)
 categoryRoutes.get('/tree', listCategoryTreeController.handle)
 categoryRoutes.get('/:id', findCategoryByIdController.handle)
 categoryRoutes.delete('/:id', deleteCategoryController.handle)
+categoryRoutes.get('/:id/articles', findArticlesByCategoryController.handle)
 
 export { categoryRoutes }

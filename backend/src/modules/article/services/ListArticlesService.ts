@@ -11,10 +11,7 @@ export class ListArticlesService {
     this.articleRepository = getCustomRepository(ArticleRepository)
   }
 
-  async execute(page: number, rpp: number) {
-    page = page || 1
-    rpp = rpp || 10
-
+  async execute(page: number = 1, rpp: number = 10) {
     const amountArticles = await this.articleRepository.count()
 
     const articles = await this.articleRepository.find({

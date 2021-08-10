@@ -18,9 +18,9 @@ export class Category {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date
 
-  // @JoinColumn()
-  // @ManyToOne(type => Category, category => category.parentId)
-  // parent: Category
+  @JoinColumn({ name: 'parent_id' })
+  @ManyToOne(type => Category)
+  parent: Category
 
   constructor() {
     if (!this.id) {
