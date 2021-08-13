@@ -12,9 +12,9 @@ export class ValidateTokenService {
     const tokenVerified = jwt.verify(token, authSecret) as AuthPayload
 
     if (new Date(tokenVerified.exp * 1000) > new Date()) {
-      return true
+      return { isValid: true }
     }
 
-    return false
+    return { isValid: false }
   }
 }

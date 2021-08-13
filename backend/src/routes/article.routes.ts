@@ -5,6 +5,7 @@ import { UpdateArticleController } from '../modules/article/controllers/UpdateAr
 import { DeleteArticleByIdController } from '../modules/article/controllers/DeleteArticleByIdController'
 import { ListArticlesController } from '../modules/article/controllers/ListArticlesController'
 import { FindArticleByIdController } from '../modules/article/controllers/FindArticleByIdController'
+import { authMiddleware } from '../core/middlewares/authMiddleware'
 
 const createArticleController = new CreateArticleController()
 const updateArticleController = new UpdateArticleController()
@@ -13,6 +14,8 @@ const listArticlesController = new ListArticlesController()
 const findArticleByIdController = new FindArticleByIdController()
 
 const articleRoutes = Router()
+
+articleRoutes.use(authMiddleware)
 
 articleRoutes.get('/', listArticlesController.handle)
 articleRoutes.get('/:id', findArticleByIdController.handle)

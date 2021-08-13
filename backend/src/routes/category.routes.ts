@@ -7,6 +7,7 @@ import { ListCategoriesController } from './../modules/category/controllers/List
 import { FindCategoryByIdController } from './../modules/category/controllers/FindCategoryByIdController'
 import { ListCategoryTreeController } from '../modules/category/controllers/ListCategoryTreeController'
 import { FindArticlesByCategoryController } from '../modules/article/controllers/FindArticlesByCategoryController'
+import { authMiddleware } from '../core/middlewares/authMiddleware'
 
 const createCategoryController = new CreateCategoryController()
 const updateCategoryController = new UpdateCategoryController()
@@ -17,6 +18,8 @@ const findCategoryByIdController = new FindCategoryByIdController()
 const findArticlesByCategoryController = new FindArticlesByCategoryController()
 
 const categoryRoutes = Router()
+
+categoryRoutes.use(authMiddleware)
 
 categoryRoutes.post('/', createCategoryController.handle)
 categoryRoutes.post('/:id', updateCategoryController.handle)
