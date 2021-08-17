@@ -8,6 +8,7 @@ import { FindCategoryByIdController } from './../modules/category/controllers/Fi
 import { ListCategoryTreeController } from '../modules/category/controllers/ListCategoryTreeController'
 import { FindArticlesByCategoryController } from '../modules/article/controllers/FindArticlesByCategoryController'
 import { authMiddleware } from '../core/middlewares/authMiddleware'
+import { ensureAdminMiddleware } from '../core/middlewares/ensureAdminMiddleware'
 
 const createCategoryController = new CreateCategoryController()
 const updateCategoryController = new UpdateCategoryController()
@@ -21,12 +22,12 @@ const categoryRoutes = Router()
 
 categoryRoutes.use(authMiddleware)
 
-categoryRoutes.post('/', createCategoryController.handle)
-categoryRoutes.post('/:id', updateCategoryController.handle)
-categoryRoutes.get('/', listCategoriesController.handle)
+categoryRoutes.post('/', ensureAdminMiddleware, createCategoryController.handle)
+categoryRoutes.put('/:id', ensureAdminMiddleware, updateCategoryController.handle)
+categoryRoutes.get('/', ensureAdminMiddleware, listCategoriesController.handle)
 categoryRoutes.get('/tree', listCategoryTreeController.handle)
 categoryRoutes.get('/:id', findCategoryByIdController.handle)
-categoryRoutes.delete('/:id', deleteCategoryController.handle)
+categoryRoutes.delete('/:id', ensureAdminMiddleware, deleteCategoryController.handle)
 categoryRoutes.get('/:id/articles', findArticlesByCategoryController.handle)
 
 export { categoryRoutes }

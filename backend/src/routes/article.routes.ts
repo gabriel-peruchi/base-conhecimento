@@ -6,6 +6,7 @@ import { DeleteArticleByIdController } from '../modules/article/controllers/Dele
 import { ListArticlesController } from '../modules/article/controllers/ListArticlesController'
 import { FindArticleByIdController } from '../modules/article/controllers/FindArticleByIdController'
 import { authMiddleware } from '../core/middlewares/authMiddleware'
+import { ensureAdminMiddleware } from '../core/middlewares/ensureAdminMiddleware'
 
 const createArticleController = new CreateArticleController()
 const updateArticleController = new UpdateArticleController()
@@ -17,10 +18,10 @@ const articleRoutes = Router()
 
 articleRoutes.use(authMiddleware)
 
-articleRoutes.get('/', listArticlesController.handle)
+articleRoutes.get('/', ensureAdminMiddleware, listArticlesController.handle)
 articleRoutes.get('/:id', findArticleByIdController.handle)
-articleRoutes.post('/', createArticleController.handle)
-articleRoutes.put('/:id', updateArticleController.handle)
-articleRoutes.delete('/:id', deleteArticleByIdController.handle)
+articleRoutes.post('/', ensureAdminMiddleware, createArticleController.handle)
+articleRoutes.put('/:id', ensureAdminMiddleware, updateArticleController.handle)
+articleRoutes.delete('/:id', ensureAdminMiddleware, deleteArticleByIdController.handle)
 
 export { articleRoutes }

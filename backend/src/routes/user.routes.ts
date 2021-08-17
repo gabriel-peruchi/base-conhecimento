@@ -5,6 +5,7 @@ import { ListUsersController } from '../modules/user/controllers/ListUsersContro
 import { FindUserByIdController } from '../modules/user/controllers/FindUserByIdController'
 import { UpdateUserController } from '../modules/user/controllers/UpdateUserController'
 import { authMiddleware } from '../core/middlewares/authMiddleware'
+import { ensureAdminMiddleware } from '../core/middlewares/ensureAdminMiddleware'
 
 
 const listUsersController = new ListUsersController()
@@ -15,6 +16,7 @@ const updateUserController = new UpdateUserController()
 const userRoutes = Router()
 
 userRoutes.use(authMiddleware)
+userRoutes.use(ensureAdminMiddleware)
 
 userRoutes.get('/', listUsersController.handle)
 userRoutes.get('/:id', findUserByIdController.handle)
