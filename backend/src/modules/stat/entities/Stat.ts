@@ -1,10 +1,9 @@
-import { Column, CreateDateColumn, Entity, ObjectIdColumn } from 'typeorm'
-import { ObjectId } from 'mongodb'
+import { Column, CreateDateColumn, Entity, ObjectID, ObjectIdColumn } from 'typeorm'
 
 @Entity('stats')
 export class Stat {
-  @ObjectIdColumn({ name: '_id' })
-  readonly id: ObjectId
+  @ObjectIdColumn()
+  readonly id: ObjectID
 
   @Column()
   users: number
@@ -17,10 +16,4 @@ export class Stat {
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date
-
-  constructor() {
-    if (!this.id) {
-      this.id = new ObjectId()
-    }
-  }
 }
