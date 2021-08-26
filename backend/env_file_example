@@ -1,0 +1,17 @@
+module.exports = {
+  authSecret: '38bnf78fh478fhbf9478fcd1a3n8fv3es3478n48ub78fbv',
+  postgres: {
+    host: 'localhost',
+    port: 5432,
+    user: '',
+    password: '',
+    database: '',
+  },
+  mongodb: {
+    host: 'localhost',
+    port: 27017,
+    user: '',
+    password: '',
+    database: '',
+  }
+}
