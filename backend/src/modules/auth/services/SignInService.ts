@@ -29,8 +29,8 @@ export class SignInService {
     existsOrError(password, 'Informe a senha')
 
     const user = await this.userRepository.findOne(
-      { email }, 
-      { select: ['id', 'name', 'email', 'password'] }
+      { email },
+      { select: ['id', 'name', 'email', 'admin', 'password'] }
     )
 
     existsOrError(user, 'Usuário não existe')
@@ -42,7 +42,7 @@ export class SignInService {
     }
 
     const dateNow = Math.floor(Date.now() / 1000)
-    
+
     const payload: AuthPayload = {
       id: user.id,
       name: user.name,
