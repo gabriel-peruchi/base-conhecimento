@@ -10,7 +10,7 @@ export class FindLastStatService {
   }
 
   async execute() {
-    const lastStat = await this.statRepositority.findOne({}, { order: { createdAt: -1 } })
+    const lastStat = await this.statRepositority.findOne({ order: { 'created_at': -1 } })
 
     const defaultStat = {
       users: 0,
