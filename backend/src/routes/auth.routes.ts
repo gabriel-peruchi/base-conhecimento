@@ -1,17 +1,17 @@
 import { Router } from 'express'
 
 
-import { CreateUserController } from './../modules/user/controllers/CreateUserController'
+import { RegisterController } from './../modules/auth/controllers/RegisterController'
 import { SignInController } from './../modules/auth/controllers/SignInController'
 import { ValidateTokenController } from './../modules/auth/controllers/ValidateTokenController'
 
-const createUserController = new CreateUserController()
+const registerController = new RegisterController()
 const signInController = new SignInController()
 const validateTokenController = new ValidateTokenController()
 
 const authRoutes = Router()
 
-authRoutes.post('/register', createUserController.handle)
+authRoutes.post('/register', registerController.handle)
 authRoutes.post('/login', signInController.handle)
 authRoutes.post('/validate-token', validateTokenController.handle)
 
