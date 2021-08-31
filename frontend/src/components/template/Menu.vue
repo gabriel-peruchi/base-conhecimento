@@ -1,12 +1,18 @@
 <template>
-  <aside class="menu"></aside>
+  <aside v-show="showMenu" class="menu"></aside>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Menu'
+  name: 'Menu',
+
+  computed: {
+    showMenu () {
+      return this.$store.state.isMenuVisible
+    }
+  }
 })
 </script>
 

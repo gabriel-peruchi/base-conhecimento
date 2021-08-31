@@ -1,12 +1,7 @@
 <template>
   <header class="header">
-    <a class="toggle">
-      <font-awesome-icon
-        v-if="!hideToggle"
-        size="lg"
-        :icon="icon"
-        @click="toggleMenu"
-      />
+    <a class="toggle" v-if="!hideToggle" @click="toggleMenu">
+      <font-awesome-icon size="lg" :icon="icon" />
     </a>
     <h1 class="title">
       {{ title }}
@@ -14,7 +9,7 @@
   </header>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -31,12 +26,14 @@ export default defineComponent({
 
   computed: {
     icon () {
-      return 'angle-left'
+      return this.$store.state.isMenuVisible ? 'angle-left' : 'angle-down'
     }
   },
 
   methods: {
-    toggleMenu () {}
+    toggleMenu () {
+      this.$store.commit('toggleMenu')
+    }
   }
 })
 </script>

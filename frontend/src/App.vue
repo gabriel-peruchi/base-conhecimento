@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app" :class="{ 'hide-menu': !showMenu }">
     <Header title="Base de Conhecimento" :hideToggle="false" />
     <Menu />
     <Content />
@@ -23,6 +23,12 @@ export default defineComponent({
     Menu,
     Content,
     Footer
+  },
+
+  computed: {
+    showMenu () {
+      return this.$store.state.isMenuVisible
+    }
   }
 })
 </script>
@@ -48,5 +54,12 @@ body {
     "header header"
     "menu content"
     "menu footer";
+}
+
+.app.hide-menu {
+  grid-template-areas:
+    "header header"
+    "content content"
+    "footer footer";
 }
 </style>
