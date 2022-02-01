@@ -1,20 +1,14 @@
-import { createApp } from 'vue'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faAngleLeft, faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import { createApp } from 'vue'
+import vuetify from './plugins/vuetify'
+import { loadFonts } from './plugins/webfontloader'
 
-library.add(faAngleLeft, faAngleDown)
+loadFonts()
 
-const app = createApp(App)
-
-app
-  .use(store)
+createApp(App)
   .use(router)
-
-app.component('font-awesome-icon', FontAwesomeIcon)
-
-app.mount('#app')
+  .use(store)
+  .use(vuetify)
+  .mount('#app')
