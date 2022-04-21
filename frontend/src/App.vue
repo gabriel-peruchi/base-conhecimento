@@ -1,5 +1,5 @@
 <template>
-  <div class="app" :class="{ 'hide-menu': !showMenu }">
+  <div class="app" :class="{ 'hide-menu': !isMenuVisible }">
     <Header title="Base de Conhecimento" :hideToggle="false" />
     <Menu />
     <Content />
@@ -7,30 +7,18 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { useStore } from 'vuex'
+import { computed } from '@vue/runtime-core'
 
-import Header from './components/template/Header.vue'
 import Menu from './components/template/Menu.vue'
-import Content from './components/template/Content.vue'
 import Footer from './components/template/Footer.vue'
+import Header from './components/template/Header.vue'
+import Content from './components/template/Content.vue'
 
-export default defineComponent({
-  name: 'App',
+const store = useStore()
 
-  components: {
-    Header,
-    Menu,
-    Content,
-    Footer
-  },
-
-  computed: {
-    showMenu () {
-      return this.$store.state.isMenuVisible
-    }
-  }
-})
+const isMenuVisible = computed(() => store.state.isMenuVisible)
 </script>
 
 <style>

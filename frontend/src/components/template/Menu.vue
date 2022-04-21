@@ -1,19 +1,14 @@
 <template>
-  <aside v-show="showMenu" class="menu"></aside>
+  <aside v-show="isMenuVisible" class="menu"></aside>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { useStore } from 'vuex'
+import { computed } from '@vue/runtime-core'
 
-export default defineComponent({
-  name: 'Menu',
+const store = useStore()
 
-  computed: {
-    showMenu () {
-      return this.$store.state.isMenuVisible
-    }
-  }
-})
+const isMenuVisible = computed(() => store.state.isMenuVisible)
 </script>
 
 <style>

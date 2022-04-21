@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <a class="toggle" v-if="!hideToggle" @click="toggleMenu">
-      <font-awesome-icon size="lg" :icon="icon" />
+      <v-icon size="32px">{{ icon }}</v-icon>
     </a>
     <h1 class="title">
       {{ title }}
@@ -9,33 +9,22 @@
   </header>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { useStore } from 'vuex'
+import { computed, defineProps } from '@vue/runtime-core'
 
-export default defineComponent({
-  name: 'Header',
+defineProps<{
+  title: string
+  hideToggle: boolean
+}>()
 
-  props: {
-    title: {
-      type: String
-    },
-    hideToggle: {
-      type: Boolean
-    }
-  },
+const store = useStore()
 
-  computed: {
-    icon () {
-      return this.$store.state.isMenuVisible ? 'angle-left' : 'angle-down'
-    }
-  },
+const icon = computed<string>(() =>
+  store.state.isMenuVisible ? 'mdi-chevron-left' : 'mdi-chevron-down'
+)
 
-  methods: {
-    toggleMenu () {
-      this.$store.commit('toggleMenu')
-    }
-  }
-})
+const toggleMenu = () => store.commit('toggleMenu')
 </script>
 
 <style>
