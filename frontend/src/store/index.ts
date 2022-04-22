@@ -2,8 +2,13 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    isMenuVisible: true
+    isMenuVisible: true,
+    user: {
+      name: 'User mock',
+      email: 'mock@test.com.br'
+    }
   },
+
   mutations: {
     toggleMenu (state, isVisible?: boolean) {
       if (isVisible === undefined) {
@@ -13,8 +18,8 @@ export default createStore({
       }
     }
   },
-  actions: {
-  },
-  modules: {
-  }
+
+  actions: {},
+
+  modules: {}
 })

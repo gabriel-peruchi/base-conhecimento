@@ -6,6 +6,7 @@
     <h1 class="title">
       {{ title }}
     </h1>
+    <UserDropdown v-if="!hideUserDropdown" />
   </header>
 </template>
 
@@ -13,9 +14,12 @@
 import { useStore } from 'vuex'
 import { computed, defineProps } from '@vue/runtime-core'
 
+import UserDropdown from './UserDropdown.vue'
+
 defineProps<{
   title: string
-  hideToggle: boolean
+  hideToggle: boolean,
+  hideUserDropdown: boolean
 }>()
 
 const store = useStore()

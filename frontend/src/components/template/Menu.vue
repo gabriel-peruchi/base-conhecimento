@@ -8,7 +8,7 @@ import { computed } from '@vue/runtime-core'
 
 const store = useStore()
 
-const isMenuVisible = computed(() => store.state.isMenuVisible)
+const isMenuVisible = computed<boolean>(() => store.state.isMenuVisible)
 </script>
 
 <style>
