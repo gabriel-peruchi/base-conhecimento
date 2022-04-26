@@ -6,6 +6,8 @@ module.exports = [
     type: 'mongodb',
     host: mongodb.host,
     port: mongodb.port,
+    username: mongodb.username,
+    password: mongodb.password,
     database: mongodb.database,
     useUnifiedTopology: true,
     entities: [
