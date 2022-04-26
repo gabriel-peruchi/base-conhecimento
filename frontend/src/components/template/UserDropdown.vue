@@ -8,7 +8,9 @@
       <v-icon size="24px" icon="mdi-chevron-down" />
     </div>
     <div class="user-dropdown-content">
-      <a href><v-icon icon="mdi-cog" /> Administração</a>
+      <router-link to="/admin">
+        <v-icon icon="mdi-cog" /> Administração
+      </router-link>
       <a href><v-icon icon="mdi-logout" /> Sair</a>
     </div>
   </div>

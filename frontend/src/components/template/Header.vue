@@ -1,10 +1,12 @@
 <template>
   <header class="header">
     <a class="toggle" v-if="!hideToggle" @click="toggleMenu">
-      <v-icon size="32px">{{ icon }}</v-icon>
+      <v-icon size="32px" :icon="icon" />
     </a>
     <h1 class="title">
-      {{ title }}
+      <router-link to="/">
+        {{ title }}
+      </router-link>
     </h1>
     <UserDropdown v-if="!hideUserDropdown" />
   </header>

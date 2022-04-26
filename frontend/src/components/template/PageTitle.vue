@@ -1,8 +1,10 @@
 <template>
   <div class="page-title">
-    <h1><v-icon v-if="icon" :icon="icon" />{{ title }}</h1>
+    <div class="title-content">
+      <v-icon size="36px" v-if="icon" :icon="icon" />
+      <h1>{{ title }}</h1>
+    </div>
     <h2>{{ subtitle }}</h2>
-    <hr/>
   </div>
 </template>
 
@@ -18,13 +20,21 @@ defineProps<{
 </script>
 
 <style>
+.title-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .page-title h1 {
   margin: 0;
+  margin-left: 5px;
 }
 
 .page-title h2 {
   color: #777;
-  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: 1.3rem;
+  font-weight: 400;
 }
 </style>
