@@ -4,11 +4,13 @@ module.exports = [
   {
     name: 'knowledge_stats',
     type: 'mongodb',
+    synchronize: true,
     host: mongodb.host,
     port: mongodb.port,
-    username: mongodb.username,
+    username: mongodb.user,
     password: mongodb.password,
     database: mongodb.database,
+    authSource: mongodb.authSource,
     useUnifiedTopology: true,
     entities: [
       'src/modules/stat/entities/*.ts'

@@ -13,5 +13,6 @@ module.exports = {
     user: '',
     password: '',
     database: '',
+    authSource: ''
   }
 }
