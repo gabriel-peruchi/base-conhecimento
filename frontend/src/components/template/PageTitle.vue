@@ -26,6 +26,10 @@ defineProps<{
   align-items: center;
 }
 
+.page-title {
+  margin-bottom: 20px;
+}
+
 .page-title h1 {
   margin: 0;
   margin-left: 5px;

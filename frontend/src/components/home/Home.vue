@@ -55,7 +55,5 @@ onMounted(() => getStats())
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-
-  margin-top: 20px;
 }
 </style>
